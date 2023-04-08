@@ -14,10 +14,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetalhesPage implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  public cardapioImg = '../../assets/';
+ 
   public quantidade = 0;
   
   public detalhes = { 
@@ -46,6 +44,9 @@ export class DetalhesPage implements OnInit {
     if(this.quantidade > 0){
       this.quantidade -= 1;
     }
+  }
+
+  ngOnInit() {
   }
 
    

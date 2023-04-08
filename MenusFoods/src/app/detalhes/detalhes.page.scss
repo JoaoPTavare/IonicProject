@@ -1,0 +1,36 @@
+.footer-produto{
+    background-color:  #911717;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    color: rgb(246, 240, 240);
+}
+
+.inp-quantidade{
+    color: #ffffff;
+    text-align: center;
+    background-color:  #911717;
+    border-radius: 8px;
+    max-width: 100%;
+    width: 100%;
+    margin-left: 5px;
+}
+
+.descricao-produto{
+    text-align: center;
+    color: #010101;
+    font-size: 18px;
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+  padding: 15px 10px;
+  border-radius: 8px;
+  -webkit-box-shadow: -0.5px 0.5px 4px 0px rgba(121, 121, 121, 0.75);
+  -moz-box-shadow: -0.5px 0.5px 4px 0px rgba(121, 121, 121, 0.75);
+  box-shadow: -0.5px 0.5px 4px 0px rgba(121, 121, 121, 0.75);
+}
+
+.valor-produto{
+    color: #fcfcfc;
+    font-size: 28px;
+    text-align: center;
+}
