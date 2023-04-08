@@ -1,68 +1,83 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    
-    <ion-row>
-      <ion-col>
-        <ion-title> Menu do jao </ion-title>
-      </ion-col>
-    </ion-row>
-    
+<ion-header>
+  <ion-row class="c1-header">
+   <ion-col size="4" class="menu-icon">
+     <ion-icon name="reorder-three"></ion-icon>
+   </ion-col>
+   <ion-col size="7">
+     Menu do jao
+   </ion-col>
+   <ion-col size="1" class="c1-title">
+     <ion-icon name="person-circle-outline"></ion-icon>
+   </ion-col>
+ </ion-row>
+ <ion-row > 
+    <ion-col size = "6" class = "c1-opcoes">
+      <ion-segment [(ngModel)] = "segment">
+        <ion-segment-button [value] = "categoria[0].id">
+         
+          Pizzas
+        
+        </ion-segment-button>
+      </ion-segment> 
+    </ion-col>
+      
     <ion-col size = "6" class = "c2-opcoes">
       <ion-segment [(ngModel)] = "segment">
-        <ion-segment-button [value] = "Item[0].codigo">
-         
-            <ion-label>   Pizza</ion-label>
-           
+        <ion-segment-button [value] = "categoria[1].id">
+      
+          Burgues
+       
         </ion-segment-button>  
       </ion-segment>
     </ion-col>
- 
-
- <ion-col size = "6" class = "c2-opcoes">
-  <ion-segment [(ngModel)] = "segment">
-    <ion-segment-button [value] = "Item[1].codigo">
-       
-        <ion-label>  Burguer</ion-label>
- 
-    </ion-segment-button>  
-  </ion-segment>
-</ion-col>
- 
-  </ion-toolbar>
+ </ion-row>
 </ion-header>
 
 
+<ion-content [fullscreen]="true" class="e1-content">
 
-<ion-content [fullscreen]="true">
-
- <ion-grid *ngFor="let Item of Item; ix = index">
-  <ion-row  *ngIf="segment == Item.codigo">
-    <ion-col size="6" *ngFor="let Item of Item.categoria">
-      <ion-row>
-        <ion-col size="12" class="card-produto">
-
-         <ion-row>
-           <ion-col size="6" class="img-produto" >
-             <img [src]="trazendoImg + Item.img"/>
-           </ion-col>
-         </ion-row>
-
-         <ion-row style="height: 45px;"> 
-          <ion-col size="12" class="titulo-produto">
-            {{Item.nome}}
+  <ion-grid *ngFor="let categoria of categoria; let ix = index">
+    <ion-row *ngIf="segment == categoria.id">
+      <ion-col size="6" *ngFor="let detalhes of categoria.detalhes">
+           <ion-row>
+            <ion-col size="12" class="card-produto">
+ 
+             <ion-row>
+               <ion-col size="6" class="img-produto" >
+                 <img [src]="cardapioImg + detalhes.imagem"/>
+               </ion-col>
+             </ion-row>
+ 
+             <ion-row style="height: 45px;"> 
+               <ion-col size="12" class="titulo-produto">
+                 {{detalhes.nome}}
+               </ion-col>
+             </ion-row>
+ 
+             <ion-row>
+               <ion-col class="valor-produto">
+                 {{detalhes.valor}}
+               </ion-col>
+             </ion-row>
+ 
+             <ion-row>
+               <ion-col size="12" class="col-botao-detalhes">
+                 <span class="botao-detalhes" (click)="verDetalhes(detalhes)"> Detalhes </span>
+               </ion-col>
+             </ion-row>
+         
           </ion-col>
-        </ion-row>
+         </ion-row> 
+        </ion-col>
+       </ion-row>
+ 
+       
+  </ion-grid>
 
-        <ion-row>
-          <ion-col class=" ">
-            {{Item.valor}}
-          </ion-col>
-        </ion-row>
-    </ion-col>
-      </ion-row>
-    </ion-col>
-  </ion-row>
- </ion-grid>
-
-   
 </ion-content>
+
+<ion-footer>
+  <ion-button class="b1-compra" expand ="block" shape = "round" fill = "outline" color = "dark">
+    <ion-icon name="cart-outline"></ion-icon>
+  </ion-button>
+</ion-footer>
